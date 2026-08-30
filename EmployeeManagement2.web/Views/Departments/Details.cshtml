@@ -1,0 +1,74 @@
+@model EmployeeManagement.Web.Models.Department
+
+@{
+    ViewData["Title"] = "Department Details";
+}
+
+<h1>Department Details</h1>
+
+<div style="margin-bottom: 25px;">
+
+    <p>
+        <b>Department Name:</b>
+        @Model.Name
+    </p>
+
+    <p>
+        <b>Location:</b>
+        @Model.Location
+    </p>
+
+</div>
+
+<h2>Employees</h2>
+
+@if (Model.Employees != null && Model.Employees.Any())
+{
+    <table border="1" cellpadding="8" cellspacing="0">
+
+        <thead>
+            <tr>
+                <th>Employee Name</th>
+                <th>Salary</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var employee in Model.Employees)
+            {
+                <tr>
+                    <td>
+                        @employee.FirstName @employee.LastName
+                    </td>
+
+                    <td>
+                        @employee.Salary
+                    </td>
+
+                    <td>
+                        @employee.Email
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+else
+{
+    <p>No employees assigned to this department.</p>
+}
+
+<br />
+
+<a asp-action="Edit"
+   asp-route-id="@Model.Id">
+    Edit
+</a>
+
+<span> | </span>
+
+<a asp-action="Index">
+    Back to List
+</a>

@@ -1,0 +1,90 @@
+﻿@model EmployeeManagement.Web.Models.Employee
+
+<h1>Create New Employee</h1>
+
+<form asp-action="Create" method="post">
+
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <div style="margin-bottom: 15px;">
+        <label asp-for="FirstName"></label><br />
+        <input asp-for="FirstName" />
+        <br />
+        <span asp-validation-for="FirstName"
+              style="color: red; display: block;">
+        </span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label asp-for="LastName"></label><br />
+        <input asp-for="LastName" />
+        <br />
+        <span asp-validation-for="LastName"
+              style="color: red; display: block;">
+        </span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label asp-for="Email"></label><br />
+        <input asp-for="Email" />
+        <br />
+        <span asp-validation-for="Email"
+              style="color: red; display: block;">
+        </span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label asp-for="Salary"></label><br />
+        <input asp-for="Salary" />
+        <br />
+        <span asp-validation-for="Salary"
+              style="color: red; display: block;">
+        </span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label asp-for="HireDate"></label><br />
+        <input asp-for="HireDate" type="date" />
+        <br />
+        <span asp-validation-for="HireDate"
+              style="color: red; display: block;">
+        </span>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+        <label asp-for="DepartmentId"></label><br />
+
+        <select asp-for="DepartmentId"
+                asp-items="ViewBag.DepartmentId">
+            <option value="">-- Select Department --</option>
+        </select>
+
+        <br />
+
+        <span asp-validation-for="DepartmentId"
+              style="color: red; display: block;">
+        </span>
+    </div>
+
+    <div>
+        <button type="submit"
+                style="background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;">
+            Create
+        </button>
+
+        <a asp-action="Index" style="margin-left: 10px;">
+            Back to List
+        </a>
+    </div>
+
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

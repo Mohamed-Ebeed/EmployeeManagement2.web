@@ -1,0 +1,72 @@
+﻿@model EmployeeManagement.Web.Models.Employee
+
+<h1>Edit Employee</h1>
+
+<form asp-action="Edit" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <div style="margin-bottom: 15px;">
+        <label asp-for="FirstName"></label><br />
+        <input asp-for="FirstName" />
+        <span asp-validation-for="FirstName"></span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label asp-for="LastName"></label><br />
+        <input asp-for="LastName" />
+        <span asp-validation-for="LastName"></span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label asp-for="Email"></label><br />
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label asp-for="Salary"></label><br />
+        <input asp-for="Salary" />
+        <span asp-validation-for="Salary"></span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label asp-for="HireDate"></label><br />
+        <input asp-for="HireDate" type="date" />
+        <span asp-validation-for="HireDate"></span>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+        <label asp-for="DepartmentId"></label><br />
+
+        <select asp-for="DepartmentId" asp-items="ViewBag.DepartmentId">
+            <option value="">-- Select Department --</option>
+        </select>
+
+        <span asp-validation-for="DepartmentId"></span>
+    </div>
+
+    <div>
+        <button type="submit"
+                style="background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;">
+            Save Changes
+        </button>
+
+        <a asp-action="Index" style="margin-left: 10px;">
+            Back to List
+        </a>
+    </div>
+
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

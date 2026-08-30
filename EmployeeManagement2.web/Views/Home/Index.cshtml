@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Employee Management System</h1>
+    <p>Departments</p>
+</div>
+
+<div style="
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    ">
+
+    @foreach (var department in Model)
+    {
+        <div style="
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            width: 250px;
+            ">
+
+            <h2>@department.Name</h2>
+
+            
+
+            <p>
+                <strong>Employees:</strong>
+                @department.EmployeeCount
+            </p>
+
+            <p>
+                <strong>TotalSalary:</strong>
+                @department.TotalSalary $
+            </p>
+           
+        </div>
+    }
+
+</div>

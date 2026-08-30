@@ -1,0 +1,43 @@
+﻿@model EmployeeManagement.Web.Models.Employee
+
+<h1>Employee Details</h1>
+
+<div style="margin-top: 20px;">
+
+    <p style="margin-bottom: 15px;">
+        <b>First Name:</b> @Model.FirstName
+    </p>
+
+    <p style="margin-bottom: 15px;">
+        <b>Last Name:</b> @Model.LastName
+    </p>
+
+    <p style="margin-bottom: 15px;">
+        <b>Email:</b> @Model.Email
+    </p>
+
+    <p style="margin-bottom: 15px;">
+        <b>Salary:</b> @Model.Salary
+    </p>
+
+    <p style="margin-bottom: 15px;">
+        <b>Hire Date:</b> @Model.HireDate.ToShortDateString()
+    </p>
+
+    <p style="margin-bottom: 25px;">
+        <b>Department:</b> @(Model.Department?.Name ?? "-")
+    </p>
+
+</div>
+
+<div>
+    <a asp-action="Edit"
+       asp-route-id="@Model.Id">
+        Edit
+    </a>
+
+    <a asp-action="Index"
+       style="margin-left: 15px;">
+        Back to List
+    </a>
+</div>

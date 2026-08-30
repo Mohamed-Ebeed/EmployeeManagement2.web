@@ -1,0 +1,59 @@
+@model IEnumerable<EmployeeManagement.Web.Models.Department>
+
+@{
+    ViewData["Title"] = "Departments";
+}
+
+<h1>Departments</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Employees</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+
+                <td>
+                    @item.Location
+                </td>
+
+                <td>
+                    @if (item.Employees != null && item.Employees.Any())
+                    {
+                        foreach (var employee in item.Employees)
+                        {
+                            <div>
+                                @employee.FirstName @employee.LastName
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <span>-</span>
+                    }
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>

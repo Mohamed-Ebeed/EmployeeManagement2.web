@@ -1,0 +1,56 @@
+@model EmployeeManagement.Web.Models.Department
+
+@{
+    ViewData["Title"] = "Edit Department";
+}
+
+<h1>Edit Department</h1>
+
+<h4>Department</h4>
+<hr />
+
+<form asp-action="Edit" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div style="margin-bottom: 20px;">
+        <label asp-for="Name"></label>
+        <br />
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+        <label asp-for="Location"></label>
+        <br />
+        <input asp-for="Location" />
+        <span asp-validation-for="Location"></span>
+    </div>
+
+    <button type="submit"
+            style="background-color: #0d6efd;
+        color: white;
+        border: none;
+        padding: 8px 18px;
+        border-radius: 4px;">
+        Save
+    </button>
+
+    <div style="margin-top: 15px;">
+        <a asp-action="Index"
+           style="background-color: #0d6efd;
+            color: white;
+            padding: 8px 18px;
+            text-decoration: none;
+            border-radius: 4px;">
+            Back to List
+        </a>
+    </div>
+
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
